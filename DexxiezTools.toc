@@ -1,0 +1,12 @@
+## Interface: 30401
+## Version: 0.1
+## Title: |c00A0C66BDexxiez|r Tools
+## Author: Dexxiez
+## Notes: 
+## DefaultState: enabled
+
+Core.lua
+Globals.lua
+Alchemy.lua
+DxUtils.lua
+Events.lua
