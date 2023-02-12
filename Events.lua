@@ -16,8 +16,8 @@ function events:UNIT_SPELLCAST_SENT(self, target, arg1, spell)
         "Giving a written warning to %s"
     }
 
-    -- Hand of Reckoning or Distracting Shot
-    if(spell == 62124 or spell == 20736) then
+    -- Hand of Reckoning
+    if(spell == 62124 ) then
         SendChatMessage(string.format(taunts[math.random(1, table.getn(taunts))], DxUtils:FixName(target)), "SAY");
         return;
     end
