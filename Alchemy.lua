@@ -8,8 +8,10 @@ function Alchemy:HandleCommand(args)
         print("Free Pots: " .. freePots .. " - Procs: " .. procs);
     elseif args == "report" then
         if UnitInParty("player") then
+            SendChatMessage("Thanks for using Dr Dexxiez Alchemy - MBBS, FRANZCP, MD (Psychiatry)" .. procs ,"PARTY");
             SendChatMessage("[Session Stats] Free Pots: " .. freePots .. " - Procs: " .. procs ,"PARTY");
         else
+            SendChatMessage("Thanks for using Dr Dexxiez Alchemy - MBBS, FRANZCP, MD (Psychiatry)" .. procs ,"GUILD");
             SendChatMessage("[Session Stats] Free Pots: " .. freePots .. " - Procs: " .. procs ,"GUILD");
         end
     elseif args == "reset" then
@@ -20,7 +22,7 @@ function Alchemy:HandleCommand(args)
 end
 
 ChatFrame_AddMessageEventFilter("CHAT_MSG_LOOT", function(frame, event, msg)
-	_, _, key, value = msg:find('.+%[(.+)%].+(%d+)');
+	_, _, key, value = msg:find('You create.+%[(.+)%].+(%d+)');
     if key == "Potion of Speed" or key == "Potion of Wild Magic" or key == "Indestructible Potion" then
             if value == "0" then return false end
             freePots = freePots + tonumber(value) - 1;
