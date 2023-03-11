@@ -13,7 +13,14 @@ function events:UNIT_SPELLCAST_SENT(self, target, arg1, spell)
     local taunts = {
         "Having a word with %s",
         "Insulting %s",
-        "Giving a written warning to %s"
+        "Giving a written warning to %s",
+        "Doing a dodgy tax return for %s",
+        "Trimming %s's Armour",
+        "Feeding %s to daddy Yog",
+        "Turning %s into a femboy UwU",
+        "%s clicked on Bilzard's Link in whisper",
+        "Forcing %s to listen to Kanye's new album",
+        "Luring %s into a false sense of security"
     }
 
     -- Hand of Reckoning

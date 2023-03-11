@@ -8,10 +8,10 @@ function Alchemy:HandleCommand(args)
         print("Free Pots: " .. freePots .. " - Procs: " .. procs);
     elseif args == "report" then
         if UnitInParty("player") then
-            SendChatMessage("Thanks for using Dr Dexxiez Alchemy - MBBS, FRANZCP, MD (Psychiatry)" .. procs ,"PARTY");
+            SendChatMessage("Thanks for using Dr Dexxiez Alchemy - MBBS, FRANZCP, MD (Psychiatry)" ,"PARTY");
             SendChatMessage("[Session Stats] Free Pots: " .. freePots .. " - Procs: " .. procs ,"PARTY");
         else
-            SendChatMessage("Thanks for using Dr Dexxiez Alchemy - MBBS, FRANZCP, MD (Psychiatry)" .. procs ,"GUILD");
+            SendChatMessage("Thanks for using Dr Dexxiez Alchemy - MBBS, FRANZCP, MD (Psychiatry)" ,"GUILD");
             SendChatMessage("[Session Stats] Free Pots: " .. freePots .. " - Procs: " .. procs ,"GUILD");
         end
     elseif args == "reset" then
