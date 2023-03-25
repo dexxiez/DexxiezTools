@@ -45,6 +45,19 @@ function events:UNIT_SPELLCAST_SENT(self, target, arg1, spell)
     end
 end
 
+function events:COMBAT_LOG_EVENT_UNFILTERED(self, event, ...)
+    local timestamp, combatEvent, hideCaster, sourceGUID, sourceName, sourceFlags, sourceRaidFlags, destGUID, destName, destFlags, destRaidFlags, spellID, spellName, spellSchool, auraType, amount = CombatLogGetCurrentEventInfo()
+    if combatEvent == "SPELL_DISPEL" and spellID == 19801 then -- Check if the event is a spell dispel and if the dispel was done by spell ID 19801
+        if(sourceName == "Dexxiez" or sourceName == "Strattera") then
+            if(UnitInRaid("player")) then
+                SendChatMessage(string.format("I just rolled %s for his %s fuckin lol", destName, GetSpellLink(auraType)), "RAID");
+            elseif(UnitInParty("player")) then
+                SendChatMessage(string.format("I just rolled %s for his %s fuckin lol", destName, GetSpellLink(auraType)), "PARTY");
+            end
+        end
+    end
+end
+
 frame:SetScript("OnEvent", function(self, event, ...)
     events[event](self, ...);
    end);
