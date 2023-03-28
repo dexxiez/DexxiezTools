@@ -10,3 +10,4 @@ Globals.lua
 Alchemy.lua
 DxUtils.lua
 Events.lua
+Pet.lua

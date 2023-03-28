@@ -1,6 +1,7 @@
 
 local frame, events = CreateFrame("Frame"), {};
 
+local lastDeath = 0;
 
 function events:PLAYER_ENTERING_WORLD()
     SetCVar("cameraDistanceMaxZoomFactor", "4");
@@ -9,10 +10,15 @@ end
 function events:PLAYER_DEAD()
     name, realm = UnitName("player");
     if(name == "Straterra" or name == "Dexxiez") then
-        WhisperTanksHealers("{star}{star} ARDENT DEFENDER PROCC'D {star}{star}");
+        if (time()  - lastDeath) < 60 then
+            return;
+        end
+            lastDeath = time();
+            WhisperTanksHealers("{star}{star} ARDENT DEFENDER PROCC'D {star}{star}");
     end
     
 end
+
 
 function events:UNIT_SPELLCAST_SENT(self, target, arg1, spell)
     local inInstance = IsInInstance();
